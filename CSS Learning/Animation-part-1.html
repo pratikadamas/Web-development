@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMATION-1</title>
+    <STYle>
+         .maa{
+            height: 500px;
+            width: 500px;
+            background-color:blue;
+            border: 5px greenyellow solid;
+             margin: auto;
+             position: relative;
+             top: 200px;
+
+         }
+         .box{
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            animation: box 5s;
+            animation-delay: 1s;
+            animation-iteration-count: 4;
+          animation-fill-mode: both;
+          animation-direction: alternate;
+         }
+         @keyframes box{
+            0%{
+               top: 0px;
+               left: 0px;
+               background-color: teal;
+            }
+            25%{
+                top: 0%;
+                left: 400px;
+                 background-color: darkgreen;
+            }
+            50%{
+                top: 400px;
+                left: 400px;
+              background-color: cyan;
+            }
+            75%{
+               top: 400px;
+               left:0%;
+               background-color: aquamarine;
+                
+            }
+            100%{
+                top: 0%;
+              background-color: blueviolet;
+                left: 0%;
+            }
+         }
+
+    </STYle>
+</head>
+<body>
+    <div class="maa">
+        <div class="box"></div>
+    </div>
+    
+</body>
+</html>

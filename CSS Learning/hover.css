@@ -1,0 +1,25 @@
+.main{
+    height: 400px;
+    width: 500px;
+
+}
+.col1{
+    background-color: aqua;
+height: 400px;
+width: 250px;
+float: left;
+text-align: center;
+}
+.col2{
+    height: 400px;
+width: 250px;
+float: left;
+background-color: rgb(242, 255, 127);
+text-align: center;
+}
+.col1:hover{
+    background-color: blueviolet;
+}
+.col2:hover{
+    background-color: rgb(226, 43, 107);
+}

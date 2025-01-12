@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMATION-2</title>
+    <style>
+        .box1{
+            height: 400px;
+            width: 2500px;
+            border: 4px red solid;;
+            margin: auto;
+            top: 400px;
+           position: relative;
+           
+
+        }
+             
+               /* linear: speed same all position.
+              
+              ease:begining and ending fast.
+              esce-in:starting slow.
+              ease-out:ending slow.
+              ease-in-out : both occures.
+              */
+        .box2{
+            height: 200px;
+            width: 300px;
+            background-color: blue;
+            border: 2px black solid;
+            top: 100px;
+            position: absolute;
+            animation-name: box2;
+           animation-duration: 10s;
+           animation-timing-function:ease-in-out;
+           text-align: center;
+
+             
+
+        }
+        @keyframes box2{
+            0%{
+                top: 100px;
+                left: 0px;
+
+            }
+            25%{
+                top: 100px;
+                left: 100px;
+
+            }
+            50%{
+                top: 100px;
+                left: 1900px;
+            }
+            75%{
+                top: 100px;
+                left: 2200px;
+
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2" style="color: black;"> BOX-1</div>
+    </div>
+    
+</body>
+</html>

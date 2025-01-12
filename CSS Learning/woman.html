@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety Login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+    
+    h2 {
+        text-align: center;
+        color: #79e91e;
+        margin-bottom: 20px;
+    }
+    p {
+        text-align: center;
+        color: #ef089b;
+        margin-bottom: 20px;
+        font-size: 25px;
+        font-weight: bolder;
+        font-family: Copperplate, Papyrus, fantasy;
+    }
+    p:hover{
+        color: blue;
+    }
+    
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+    }
+    
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #e91e63;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    button:hover {
+        background-color: #44d81b;
+    }
+    
+</style>
+</head>
+<body>
+    <div class="container">
+        <p>AASTHA</p>
+        <form action="/submit" method="post">
+            <label for="country">Select  your Country</label>
+            <select id="country" name="country" placeholder="Country" required>
+                <option value="INDIA">India</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="usa">USA</option>
+                <option value="uk">UK</option>
+                <option value="australia">Australia</option>
+            </select>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="blood"> Blood Group</label>
+            <select id="blood" name="blood" placeholder="Blood Group" required>
+                <option value="1">A+</option>
+                <option value="2">A-</option>
+                <option value="3">B+</option>
+                <option value="4">B-</option>
+                <option value="5">AB+</option>
+                <option value="6">AB-</option>
+                <option value="7">O+</option>
+                <option value="8">O-</option>
+            </select>
+
+            
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" placeholder="Enter your state" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+
+            <label for="email">E-mail ID</label>
+            <input type="email" id="email" name="email" placeholder="Enter your E-mail ID" required>
+
+            <label for="password"> Set Password</label>
+            <input type="password" id="password" name="password" placeholder="Set your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('safetyForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+        
+            let name = document.getElementById('name').value;
+            let country = document.getElementById('country').value;
+            let state = document.getElementById('state').value;
+            let mobile = document.getElementById('mobile').value;
+            let password = document.getElementById('password').value;
+        
+            // Simple validation check
+            if(name && country && state && mobile && password) {
+                alert("Registration Successful!");
+                // Add logic to store or send data here
+            } else {
+                alert("Please fill in all fields.");
+            }
+        });
+        
+    </script>
+</body>
+</html>

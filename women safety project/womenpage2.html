@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup</title>
+    <style>
+        .container{
+            margin: auto;
+            border: 3px rgb(47, 10, 10) solid;
+            width: 450px;
+            position: relative;
+            height: 450px;
+            background-image: ;
+            box-shadow: -20px -20px 10px 5px #828373, 20px 20px 10px 5px #767672;
+            margin-top: 50px;
+        }
+        .div1{
+
+        position: absolute;
+        margin: auto;
+        height: 5px;
+        font-size: 4PX;
+        left:0px;
+        }
+        .container:hover .div1{
+        opacity: 1;
+        transition: 1s;
+        top: 0px;
+        left: 30%;
+        Font-weight: bolder;
+        color: rgb(32, 193, 218);
+        font-size: 35PX;
+        text-align: center;
+        font-family:Copperplate, Papyrus, fantasy;
+        }
+        .input-box{
+            color: rgb(251, 19, 104);
+            padding: 5px;
+            font-size: 20px;
+            font-weight: 900;
+            margin: 0px ;
+        }
+        .complete{
+            margin: 10px;
+            text-align: center;
+        }
+        .complete button{
+            color: rgb(255, 59, 20);
+            font-size: 16px;
+            font-weight: 700;
+            border: 3px solid black;
+            border-radius: 6px;
+        }
+        .div2{
+            position: absolute;
+            left: 45px;
+            bottom: 0px;
+        }
+        img{
+            height: 450px;
+            width: 450px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="Aasyha logo.jpg" alt="">
+        <div class="form-box">
+            <div class="div1">
+            <p>AASTHA</p>
+            </div>
+            <div class="div2">
+            <form id="profileForm">
+                <!-- Profile Picture Selection -->
+                <div class="input-box">
+                    <label for="profilePicture">Profile Picture:</label>
+                    <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
+                </div>
+
+                <!-- Location Access -->
+                <div class="input-box">
+                    <label for="locationAccess">Turn On Location:</label>
+                    <button type="button" id="locationButton" onclick="enableLocation()">Enable Location</button>
+                </div>
+
+                <!-- Time Duration Selection -->
+                <div class="input-box">
+                    <label for="timeDuration">Select Time Duration:</label>
+                    <select id="timeDuration" name="timeDuration" required>
+                        <option value="">Select Duration</option>
+                        <option value="30">30 Minutes</option>
+                        <option value="60">1 Hour</option>
+                        <option value="90">1.5 Hours</option>
+                        <option value="120">2 Hours</option>
+                        <option value="150">2.5 Hours</option>
+                        <option value="180">3 Hours</option>
+                    </select>
+                </div>
+                <div class="complete">
+                <button type="submit">Complete Setup</button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('profileForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        let profilePicture = document.getElementById('profilePicture').files[0];
+        let timeDuration = document.getElementById('timeDuration').value;
+    
+        if(profilePicture && timeDuration) {
+            alert("Profile Setup Complete!");
+            // Handle form submission (e.g., store data or redirect)
+        } else {
+            alert("Please complete all fields.");
+        }
+    });
+    function enableLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                alert("Location enabled. Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+            }, function(error) {
+                alert("Error enabling location: " + error.message);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+</script>
+</html>
