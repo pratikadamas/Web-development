@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGITAL CLOCK</title>
+    <style>
+      h1{
+
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: cornflowerblue;
+
+      }
+    </style>
+</head>
+<body >
+   
+        <h1 id="demo">
+        clock
+        </h1>
+        <button onclick="showtime"> click</button>
+    </div>
+</body>
+
+<script>
+
+    function showtime()
+    {
+        var d= new data();
+        var h=d.getHours();
+        var m=d.getMinutes();
+        var s=d.getSeconds();
+        var session ="AM";
+        var time = h+" : "+ m+" : "+s+ "  AM";
+       document.getElementsByTagName("h1")[0].innerText=time;
+        setTimeout(showtime,1000);
+    }
+
+    
+</script>
+
+</html>
