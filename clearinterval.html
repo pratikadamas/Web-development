@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 >Counting</h1>
+
+    <h1>Stop watch</h1>
+    <h2>  </h2>
+    <button id="demo" onclick="stop()"> stop</button>
+</body>
+<script>
+    var c=0;
+    let myvar =setInterval(count,1000);
+      function count(){
+        c++;
+        document.getElementsByTagName('h2')[0].innerHTML=c;
+
+    }
+    function stop(){
+        clearInterval(myvar);
+    }
+
+
+</script>
+</html>
