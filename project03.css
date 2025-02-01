@@ -1,0 +1,123 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+html,body{
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+#main{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 127, 227, 0);
+}
+#left{
+    position: relative;
+    height: 100%;
+    width: 40%;
+    background-color: rgb(245, 245, 241);
+
+}
+#right{
+    height: 100%;
+    width: 60%;
+    background-color: rgb(135, 151, 222);
+}
+#rtop{
+    display: flex;
+    height: 50%;
+    width: 1000%;
+    background-color: rgba(53, 80, 163, 0.686);
+   
+}
+#rbottom{
+    height: 50%;
+    width: 100%;
+    background-color: rgb(11, 214, 31);
+    background-image: url(https://d2jx2rerrg6sh3.cloudfront.net/images/news/ImageForNews_769146_17054003872873214.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#rtopleft{
+    height:100%;
+    width:5.5%;
+    background-color: rgb(255, 0, 0);
+    background-image: url(https://plus.unsplash.com/premium_photo-1671379529396-0ee9a0c4dbde?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+}
+#rtopright{
+    height:100%;
+    width: 4.5%;
+    background-color: rgba(0, 234, 255, 0.752);
+    background-image: url(https://images.unsplash.com/photo-1616723543030-151744e88e95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+}
+#lnav{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding:20px 30px;
+
+}
+#lnavr a{
+    margin-right:20px;   
+    text-decoration:navajowhite;
+    color: black;
+    font-size: 20px;
+    ;
+}
+#lnavr {
+    display: flex;
+    justify-items: center;
+}
+#lnavr i{
+    color: black;
+}
+#left  #textcenter{
+
+    /* this block of code is for the text in the center of the left side of the page */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#textcenter h1{
+    font-size: 50px;
+    color: black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#textcenter p{
+    font-size: 20px;
+    color: black;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    opacity: 0.7;
+}
+#textcenter h2{
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+@media(max-width: 500px){
+#main{
+    flex-direction: column;
+}
+#main #left{
+
+    width: 100%;}
+
+#main #right
+{
+    width: 100%;}
+
+
+
+}
