@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image galary</title>
+    <link rel="stylesheet" href="image_galary.css">
+</head>
+<body>
+    <div id="large">
+        
+        <img src="https://images.unsplash.com/photo-1736239284193-7c15d72fb0dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ3fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D" onclick="myfun(this)" alt="1">
+        <br>
+        <img src="https://as1.ftcdn.net/v2/jpg/04/86/09/96/1000_F_486099642_FaYAqZkz4qIMVqARs6EavadHM6EXkmXi.jpg"   onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://as1.ftcdn.net/v2/jpg/06/31/73/90/1000_F_631739068_ZctASESydnpHwr89w65H7pPEzX1z7YJM.jpg" onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://i.pinimg.com/736x/e5/3b/4b/e53b4b4c2127070966e55d4649662e02.jpg"  onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://i.pinimg.com/550x/fc/7b/56/fc7b56bc321fa8edadf16975d92dfe30.jpg" onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://images.filmibeat.com/ph-big/2022/12/rukmini-maitra_167154046710.jpg" onclick="myfun(this)"alt="">
+        <br>
+        <img src="https://t4.ftcdn.net/jpg/04/47/14/87/240_F_447148775_Vs7SZVm1JWs3QHOg5nISqDS3mYL6uCGQ.jpg" onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://t3.ftcdn.net/jpg/03/22/17/58/240_F_322175803_BrUd4XrTRxPufYGbS1MG3U9WmZyiPmaR.jpg"  onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://images.unsplash.com/photo-1713204767650-8be36bc71040?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM4N3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"  onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://images.unsplash.com/photo-1725610146999-a1447e9f5cd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM0MnxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"  onclick="myfun(this)" alt="">
+        <br>
+        <img src="https://images.unsplash.com/photo-1727686679920-79be3ffe07d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI3MnxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"  onclick="myfun(this)" alt="">
+
+        <div id="display">
+            <img  id="pic" src="https://images.unsplash.com/photo-1733356214560-be25f2df4714?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDk3fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D" alt=""> </div>
+        
+    </div>
+   <script >
+    function myfun(small){
+        var element = document.getElementById("pic");
+        element.src=small.src;
+    }
+
+    
+   </script>
+
+    
+</body>
+</html>
