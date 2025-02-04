@@ -24,9 +24,7 @@ background-image: url(https://images.unsplash.com/photo-1513094735237-8f2714d57c
 }
 #inner img{
     opacity: 0.8;
-    transform: translateZ(-10px)  scale(1.1);
-    
-        
+    transform: translateZ(-10px)  scale(1.1);      
     
 }
 
@@ -48,14 +46,11 @@ h1{
 }
 h2{
     display: flex;
-    color:  #66ffcc;
+    color:  #66d9ff;
     align-items: center;
     margin-left: 60%;
     padding-top: 50px;
     font-size: 70px;
-    text-shadow: -2px 5px #eba653;
-  
-   
-    
+    text-shadow: -2px 5px #b80be3;  
 }
 
