@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<H1>PROMISE</H1>
+</body>
+<script>
+    let promise1= new Promise( (resolve,reject) =>{
+        if(true){
+             return resolve();
+        }
+        else{
+             return reject("looser");
+        }
+    })
+    promise1
+    .then(function(res){
+        consol.log("your request is resolve",res);
+    })
+    .catch(function(err){
+        console.log("your request is rejected",err);
+    })
+
+
+</script>
+</html>
