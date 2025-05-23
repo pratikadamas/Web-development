@@ -9,6 +9,11 @@ function validateForm() {
     return false;
   }
 }
+
+function as(value) {
+  alert(value);
+}
+
 </script>
 </head>
 <body>
@@ -18,7 +23,9 @@ function validateForm() {
 <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
   Name: <input type="text" name="fname">
   <input type="submit" value="Submit">
+  <br>
 </form>
-
+  <br>
+<input type="number"  onkeydown="as(this.value)" />
 </body>
 </html>

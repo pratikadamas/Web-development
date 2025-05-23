@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Table Download</title>
+</head>
+<body>
+
+<table id="myTable">
+  <tr><th>Header 1</th><th>Header 2</th></tr>
+  <tr><td>Row 1, Cell 1</td><td>Row 1, Cell 2</td></tr>
+  <tr><td>Row 2, Cell 1</td><td>Row 2, Cell 2</td></tr>
+</table>
+
+<button onclick="downloadTable()">Download Table</button>
+
+<script>
+function downloadTable() {
+  const table = document.getElementById('myTable');
+  let csv = '';
+
+  // Add header row
+  table.querySelectorAll('th').forEach(th => {
+    csv += th.innerText + ',';
+  });
+  csv = csv.slice(0, -1) + '\n';
+
+  // Add data rows
+  table.querySelectorAll('tr').forEach(tr => {
+    if (tr.nodeName === 'TR') {
+      tr.querySelectorAll('td').forEach(td => {
+        csv += td.innerText + ',';
+      });
+      csv = csv.slice(0, -1) + '\n';
+    }
+  });
+
+  // Create a temporary link and trigger download
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'table.csv';
+  a.click();
+}
+</script>
+
+</body>
+</html>
