@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>ADAMAS UNIVERSITY</h1>
+    <H2>Computer Science Engineering!!!</H2>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("h1,h2").hover(function(){
+            $(this).css({
+                'color': "red",
+                "font-size": "50px",
+                "background-color": "pink",
+                "font-family": "Arial",
+                "opacity": "0.5",
+                "text-decoration": "underline"
+            });
+
+        });
+        $("h1,h2").mouseleave(function(){
+            $(this).css({
+                'color': "black",
+                "font-size": "30px",
+                "background-color": "white",
+                "font-family": "Arial",
+                "opacity": "1",
+                "text-decoration": "none"
+            });
+        });
+
+    });
+</script>
