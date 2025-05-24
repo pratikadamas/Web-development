@@ -16,7 +16,7 @@
     const xhr = new XMLHttpRequest();
     xhr.onload= function(){
         if (xhr.status === 200) {
-            document.getElementById("result").innerHTML = xhr.responseText;
+            document.getElementById("result").innerHTML = xhr.getAllResponseHeaders() + "<br>"+ "<br>" + xhr.responseText   ;
         } else {
             console.error("Error fetching data: " + xhr.status);
         }
