@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Response come using Ajax--</h1>
+    <button id="btn"  onclick="fun()" >Click Me</button>
+    <div id="result"></div>  
+</body>
+</html>
+<script>
+    function fun(){
+    const xhr = new XMLHttpRequest();
+    xhr.onload= function(){
+        if (xhr.status === 200) {
+            document.getElementById("result").innerHTML = xhr.responseText;
+        } else {
+            console.error("Error fetching data: " + xhr.status);
+        }
+    }
+    xhr.open("GET", "data.txt"); 
+    xhr.send();
+    }
+   
+</script>
