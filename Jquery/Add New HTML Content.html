@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: blue;
+            font-size: 30px;
+        }
+        p {
+            font-size: 20px;
+            color: green;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #cb37ec;
+            border-radius: 5px;
+            width: 300px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: cornflowerblue;
+            color: rgb(138, 236, 231);
+        }
+        button:hover {
+            background-color: darkblue;
+            color: white;
+        }
+        #contentArea {
+            margin-top: 20px;
+            font-size: 18px;
+            color: darkslategray;
+            border: 2px solid #27abcf;
+            padding: 100px;
+        }
+        </style>
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>This is a simple page demonstrating jQuery.</p>
+    <input type="text" id="inputField" placeholder="Type something here...">
+    <button id="addContent">Add New Content</button>
+    <div id="contentArea"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#addContent').click(function() {
+               let value= $("#inputField").val(); 
+               // Clear input field
+                $('#contentArea').append(value+" ");
+                $("#inputField").val("");
+            });
+        });
+    </script>
+    
+</body>
+</html>
