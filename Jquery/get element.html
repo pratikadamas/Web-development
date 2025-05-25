@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: blue;
+            font-size: 30px;
+        }
+        p {
+            font-size: 20px;
+            color: green;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #16bb8f;
+            border-radius: 5px;
+            width: 300px;
+        }
+        </style>
+
+</head>
+<body>
+    <h1>PRATIK GIRI</h1>
+    <hr>
+    <P>NAME: </P>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button> click me</button>
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+       
+$("button").click(function(){
+  let value =  $("#name").val();
+  $("p").append(value);
+
+
+
+});
+       
+    });
+</script>

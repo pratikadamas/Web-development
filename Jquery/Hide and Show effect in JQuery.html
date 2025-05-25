@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;   
+        
+            
+        }
+        h1 {
+            color: blue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>My name is pratik giri. I am a C.S.E student !!!.</h1>
+    <button id="hide">press for hide the above containt</button>
+    <button id="show">press for show the above containt</button>
+</body>
+</html>
+<Script>
+    $(document).ready(function() {
+        $("#hide").click(function() {
+            $("h1").hide(2000); // Hides the h1 element over 2 seconds
+        });
+
+        $("#show").click(function() {
+            $("h1").show(3000);
+        });
+    });
+</Script>
+<!-- You can also toggle between hiding and showing an element with the toggle() method -->
+ <!-- $("button").click(function(){
+  $("p").toggle();
+}); -->
