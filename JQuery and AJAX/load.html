@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>responce come form using AJAX</h1>
+    <button id="btn" >Click Me</button>
+    <div id="result"></div>
+    
+</body>
+</html>
+<script>
+   
+    $(document).ready(function(){
+        $("#btn").click(function() {
+            
+            $("#result").load("data.txt", function(data, status, xhr) {
+                if (status == "success") {
+                    console.log("Data loaded successfully.");
+                } else {
+                    console.log("Error: " + xhr.status + " " + xhr.statusText);
+                }
+            });
+        });
+    });
+</script>
+<!-- function(data,status,xhr)	Optional. Specifies a function to run if the request succeeds
+Additional parameters:
+data - contains the resulting data from the request
+status - contains the status of the request ("success", "notmodified", "error", "timeout", or "parsererror")
+xhr - contains the XMLHttpRequest object -->
+    <!-- // Function to handle the AJAX request -->
+<!-- function(data,status,xhr)	Optional. Specifies a function to run if the request succeeds
+Additional parameters:
+data - contains the resulting data from the request
+status - contains the status of the request ("success", "notmodified", "error", "timeout", or "parsererror")
+xhr - contains the XMLHttpRequest object -->
+

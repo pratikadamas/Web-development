@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #e437d3;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #097ac5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #085f9b;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px ;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px red solid;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>AJAX is the art of exchanging data with a server, and update parts of a web page - without reloading the whole page.</h1>
+    <br>
+    <button id="btn">Click Me</button>
+    <div id="result"></div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            $.ajax({
+                url: "data.txt",
+                type: "GET",
+                dataType: "text",
+                success: function(data, status, xhr) {
+                    alert("Data loaded successfully.");
+                    $("#result").html(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error: " + xhr.status + " " + xhr.statusText);
+                }
+            });
+        });
+    });
+</script>
+<!-- $.ajax({name:value, name:value, ... }) -->
