@@ -1,0 +1,337 @@
+/* Basic Reset & Box-Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Navbar Container */
+.navbar {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Puts brand on left, links on right */
+    align-items: center; /* Vertically centers items */
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* position: fixed; /* Uncomment to make it stick to the top */
+    /* width: 100%; */
+    /* top: 0; */
+    /* z-index: 1000; */
+}
+
+/* Navbar Brand/Logo */
+.navbar-brand .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Navbar Links (Desktop) */
+.navbar-links {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Arrange links horizontally */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin-left: 25px; /* Space between links */
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active { /* Add .active class via JS for current page */
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Hamburger Menu Button (Mobile) */
+.hamburger-menu {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+    display: none; /* Hidden on desktop */
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .navbar {
+        flex-wrap: wrap; /* Allow items to wrap to next line */
+        justify-content: space-between;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .navbar-links {
+        width: 100%; /* Take full width on mobile */
+        flex-direction: column; /* Stack links vertically */
+        display: none; /* Hide by default */
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    .navbar-links.active {
+        display: flex; /* Show when active (JavaScript toggles this class) */
+    }
+
+    .navbar-links li {
+        margin: 10px 0; /* Vertical spacing */
+    }
+
+    .navbar-links a {
+        display: block; /* Make links full width to click easily */
+    }
+}/* Reuse the navbar CSS from the previous response here */
+/* (Includes * reset, body, .navbar, .navbar-brand, .logo, .hamburger-menu,
+   .navbar-links, .nav-toggle-checkbox, and all media queries) */
+
+/* Add this to your style.css after the navbar styles */
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x600/007bff/ffffff?text=Hero+Image') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* Minimum height for the hero section */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-tertiary {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #007bff;
+}
+
+.btn-tertiary {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.btn-tertiary:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* Section Styles */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section:nth-of-type(even) { /* Apply different background to alternate sections */
+    background-color: #f0f0f0;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+section p {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Features Section */
+.features-section {
+    background-color: white;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.feature-item i {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature-item p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 0; /* Override section p margin */
+}
+
+/* Call to Action Section */
+.cta-section {
+    background-color: #007bff;
+    color: white;
+    padding: 80px 20px;
+}
+
+.cta-section h2 {
+    color: white;
+}
+
+.cta-section p {
+    color: #eee;
+}
+
+/* Footer */
+.footer {
+    background-color: #222;
+    color: #eee;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer p {
+    margin-bottom: 15px;
+    color: #eee; /* Ensure paragraph color matches footer text */
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+/* Media queries for sections (adjusting padding/font sizes) */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr; /* Stack features on smaller screens */
+    }
+
+    .btn-primary, .btn-secondary, .btn-tertiary {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 80px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+}
