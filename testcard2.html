@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection System - Right Radio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Body and Container Styling (unchanged from previous) */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #c766ea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+           
+            
+
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: rgba(175, 119, 119, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling (unchanged from previous) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #c9b8b8;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #0d0d0d;
+            font-weight: 600;
+        }
+
+        .profile-logout {
+            display: flex;
+            gap: 20px;
+        }
+
+        .profile-logout a {
+            text-decoration: none;
+            color: #0c0c0cee;
+            padding: 10px 18px;
+            border: 1px solid #d4d4d4;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .profile-logout a:hover {
+            background-color: #f0f0f0;
+            border-color: #999;
+            color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Area (unchanged) */
+        main {
+            flex-grow: 1;
+        }
+
+        /* Course Category Section Styling (unchanged from previous) */
+        .course-category-section {
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #c8b4f1;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .course-category-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #000000;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* --- UPDATED .course-item STYLING --- */
+        .course-item {
+            display: flex;
+            /* Changed to align items vertically centered */
+            align-items: center;
+            justify-content: space-between; /* Pushes content to left, radio to right */
+            gap: 15px; /* Gap between course details and radio button */
+            padding: 15px;
+            border: 1px solid #e3e376;
+            border-radius: 6px;
+            background-color: #ffffff;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .course-item:hover {
+            background-color: #e6f7ff;
+            border-color: #aaddff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- UPDATED RADIO BUTTON STYLING --- */
+        .radio-wrapper input[type="radio"] {
+            /* Removed margin-right as it's now on the right */
+            /* margin-top: 3px; // Not needed if align-items: center is used on parent */
+            flex-shrink: 0;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* Styling for the div containing course details */
+        .course-details {
+            flex-grow: 1; /* Allow details to take available space */
+            /* Removed flex-grow: 1 from here as it's now on .course-details directly */
+        }
+
+        .course-details h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.2em;
+            color: #222;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .course-details h3 .fas {
+            color: #6d80d3;
+        }
+
+        .course-details p {
+            margin: 0 0 5px 0;
+            font-size: 0.95em;
+            color: #515050;
+            line-height: 1.4;
+        }
+
+        /* Submit Button Styling (unchanged from previous) */
+        .submit-button-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .submit-button {
+            padding: 15px 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-button:active {
+            background-color: #3e8e41;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styling (unchanged from previous) */
+        footer {
+            text-align: center;
+            padding-top: 25px;
+            margin-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Mobile Responsiveness (updated for new layout) */
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .navbar h1 {
+                font-size: 1.6em;
+                margin-bottom: 5px;
+            }
+
+            .profile-logout {
+                width: 100%;
+                justify-content: space-around;
+                gap: 10px;
+            }
+
+            .profile-logout a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .course-category-section {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            .course-category-section h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            /* --- UPDATED MOBILE .course-item STYLING --- */
+            .course-item {
+                flex-direction: column; /* Stack details then radio button */
+                align-items: flex-start; /* Align contents to the left when stacked */
+                gap: 8px;
+                padding: 12px;
+            }
+
+            .radio-wrapper {
+                width: 100%; /* Make radio wrapper take full width when stacked */
+                display: flex;
+                justify-content: flex-end; /* Push radio button to the right of its wrapper */
+                padding-top: 5px; /* Small space after details */
+            }
+
+            .radio-wrapper input[type="radio"] {
+                margin-left: 0; /* Reset left margin */
+                margin-top: 0; /* Reset top margin if it was set */
+            }
+
+            .course-details {
+                width: 100%; /* Allow details to take full width */
+            }
+
+            .course-details h3 {
+                font-size: 1.1em;
+                gap: 5px;
+            }
+
+            .course-details p {
+                font-size: 0.85em;
+            }
+
+            .submit-button-container {
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+
+            .submit-button {
+                width: 100%;
+                padding: 15px 0;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            header {
+                padding-bottom: 15px;
+                margin-bottom: 20px;
+            }
+
+            .navbar h1 {
+                font-size: 1.4em;
+            }
+
+            .profile-logout {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .profile-logout a {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .course-category-section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .course-category-section h2 {
+                font-size: 1.2em;
+            }
+
+            .course-item {
+                padding: 10px;
+                gap: 5px;
+            }
+
+            .course-details h3 {
+                font-size: 1em;
+            }
+
+            .course-details p {
+                font-size: 0.8em;
+            }
+
+            .submit-button-container {
+                margin-top: 25px;
+                padding-top: 15px;
+            }
+
+            footer {
+                padding-top: 15px;
+                margin-top: 20px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="navbar">
+                <h1>Course Enrollment</h1>
+            </div>
+            <div class="profile-logout">
+                <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="course-category-section">
+                <h2>AEC Course Category</h2>
+                <div class="course-list">
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Artificial Intelligence <i class="fas fa-robot"></i></h3>
+                            <p><strong>Code:</strong> AI-101 | <strong>Instructor:</strong> Dr. Anya Sharma</p>
+                            <p><strong>Details:</strong> Introduction to AI concepts, machine learning basics, and ethical considerations. (3 Credits)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="aec_course_ai_101">
+                        </div>
+                    </label>
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Machine Learning Fundamentals <i class="fas fa-brain"></i></h3>
+                            <p><strong>Code:</strong> ML-205 | <strong>Instructor:</strong> Prof. Rahul Kumar</p>
+                            <p><strong>Details:</strong> Deep dive into supervised and unsupervised learning algorithms. (4 Credits)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="aec_course_ml_205">
+                        </div>
+                    </label>
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Deep Learning Architectures <i class="fas fa-network-wired"></i></h3>
+                            <p><strong>Code:</strong> DL-310 | <strong>Instructor:</strong> Ms. Priya Singh</p>
+                            <p><strong>Details:</strong> Explore neural networks, CNNs, RNNs, and practical applications. (3 Credits)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="aec_course_dl_310">
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <section class="course-category-section">
+                <h2>VAC Course Category</h2>
+                <div class="course-list">
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Graphic Design Principles <i class="fas fa-palette"></i></h3>
+                            <p><strong>Code:</strong> GD-101 | <strong>Instructor:</strong> Mr. Alok Verma</p>
+                            <p><strong>Details:</strong> Fundamentals of visual communication, layout, and typography. (2 Credits)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="vac_course_gd_101">
+                        </div>
+                    </label>
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Web Monetization Basics <i class="fas fa-dollar-sign"></i></h3>
+                            <p><strong>Code:</strong> WM-202 | <strong>Instructor:</strong> Ms. Jyoti Das</p>
+                            <p><strong>Details:</strong> Strategies for earning revenue from online content and platforms. (1 Credit)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="vac_course_wm_202">
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <section class="course-category-section">
+                <h2>SAC Course Category</h2>
+                <div class="course-list">
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Community Service & Impact <i class="fas fa-hands-helping"></i></h3>
+                            <p><strong>Code:</strong> CS-101 | <strong>Instructor:</strong> Dr. Suresh Menon</p>
+                            <p><strong>Details:</strong> Engage in local community projects and understand social impact. (1 Credit)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="sac_course_cs_101">
+                        </div>
+                    </label>
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Leadership Development <i class="fas fa-users-crown"></i></h3>
+                            <p><strong>Code:</strong> LD-202 | <strong>Instructor:</strong> Prof. Kavita Rao</p>
+                            <p><strong>Details:</strong> Develop essential leadership skills through practical exercises. (2 Credits)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="sac_course_ld_202">
+                        </div>
+                    </label>
+                    <label class="course-item">
+                        <div class="course-details">
+                            <h3>Environmental Sustainability <i class="fas fa-leaf"></i></h3>
+                            <p><strong>Code:</strong> ET-301 | <strong>Instructor:</strong> Mr. Dev Sharma</p>
+                            <p><strong>Details:</strong> Learn about environmental challenges and sustainable practices. (2 Credits)</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="selected_course" value="sac_course_et_301">
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <div class="submit-button-container">
+                <button type="submit" class="submit-button">Enroll Now</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Course Selection System. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
