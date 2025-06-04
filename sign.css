@@ -1,0 +1,239 @@
+/* Basic Reset and Body Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    background-color: #f4f4f4;
+    padding: 20px; /* Add some padding around the form */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Form Container - Responsive with aspect ratio */
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90vw; /* Start with a percentage of viewport width */
+    max-width: 800px; /* Maximum width for larger screens */
+    min-height: 400px; /* Ensure a minimum height for content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between form elements (h1 and form) */
+    box-sizing: border-box; /* Important for padding and width calculation */
+}
+
+/* For the width > height concept for the form container itself,
+   if you want a *fixed* aspect ratio regardless of content:
+   Remove the padding-bottom hack for the container itself.
+   Instead, design the *content* to fit within a wider layout.
+   If you truly want the container to enforce an aspect ratio,
+   the previous `padding-bottom` hack was correct, but then you need
+   to carefully position all inner elements absolutely.
+   For better content flow and alignment, it's often easier to let the
+   container's height be determined by its content, and simply design
+   the content to naturally lead to width > height.
+   The current approach allows the content to dictate height more naturally.
+*/
+
+.form-container h1 {
+    margin-top: 0;
+    margin-bottom: 0; /* Managed by gap on form-container */
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    width: 100%; /* Take full width */
+}
+
+.form-container form {
+    width: 100%; /* Form takes full width of the container */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form groups */
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    gap: 15px; /* Space between label and input */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.form-group label {
+    flex-basis: 150px; /* Give labels a fixed minimum width */
+    min-width: 80px; /* Smaller minimum width for very small screens */
+    font-weight: bold;
+    color: #555;
+    text-align: right; /* Align labels to the right */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    flex: 1; /* Allow inputs to take remaining space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in width */
+    min-width: 180px; /* Ensure inputs don't become too small */
+}
+
+/* Specific styling for half-width rows (10th/12th mark, CGPA/Avg) */
+.half-width-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-between; /* Distribute items */
+    gap: 20px; /* Space between the two half-width inputs */
+}
+
+.half-width-input {
+    flex: 1; /* Each half takes roughly half the space */
+    min-width: 280px; /* Minimum width before wrapping */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.half-width-input label {
+    flex-basis: 120px; /* Adjust label width for these specific inputs */
+    text-align: right;
+}
+
+.half-width-input input {
+    flex: 1; /* Input takes remaining space */
+}
+
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px; /* Space above the button */
+    width: 100%; /* Full width button */
+    box-sizing: border-box;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For smaller screens (e.g., phones in portrait mode) */
+@media (max-width: 768px) {
+    .form-container {
+        width: 95vw; /* Use more width on smaller screens */
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .form-container h1 {
+        font-size: 1.8em;
+    }
+
+    .form-group {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align labels and inputs to the left */
+        gap: 8px; /* Reduce gap */
+    }
+
+    .form-group label {
+        text-align: left; /* Align labels to the left when stacked */
+        width: 100%; /* Labels take full width */
+        flex-basis: auto; /* Remove fixed basis */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        width: 100%; /* Inputs take full width */
+        min-width: unset; /* Remove min-width restriction */
+    }
+
+    .half-width-row {
+        flex-direction: column; /* Stack these as well */
+        gap: 15px;
+    }
+
+    .half-width-input {
+        width: 100%; /* Each half takes full width when stacked */
+        min-width: unset;
+        flex-direction: column; /* Stack label and input within each half */
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .half-width-input label {
+        width: 100%;
+        text-align: left;
+        flex-basis: auto;
+    }
+}
+
+/* For very small screens (e.g., small phones) */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .form-container h1 {
+        font-size: 1.5em;
+    }
+
+    button[type="submit"] {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-height: 500px) and (max-width: 800px) {
+    body {
+        padding: 10px;
+    }
+    .form-container {
+        width: 95vw;
+        max-width: 900px;
+        min-height: unset; /* Let content define height more in landscape */
+        padding: 20px;
+        gap: 15px;
+    }
+    .form-container h1 {
+        font-size: 1.8em;
+    }
+
+    /* Try to keep some elements side-by-side in landscape */
+    .form-group {
+        flex-direction: row; /* Prefer row layout */
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .form-group label {
+        text-align: right;
+        flex-basis: 120px; /* Adjust as needed */
+    }
+    .form-group input {
+        flex: 1;
+        min-width: 150px; /* Ensure enough space for inputs */
+    }
+    .half-width-row {
+        flex-direction: row; /* Keep these side-by-side */
+        gap: 15px;
+    }
+    .half-width-input {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    .half-width-input label {
+        text-align: right;
+        flex-basis: 80px; /* Shorter labels in landscape */
+    }
+}

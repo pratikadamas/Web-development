@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .option-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .radio-div {
+      padding: 10px 20px;
+      border: 2px solid #3498db;
+      border-radius: 5px;
+      background-color: white;
+      color: #3498db;
+      cursor: pointer;
+      transition: 0.2s;
+      user-select: none;
+    }
+
+    .radio-div.selected {
+      background-color: #3498db;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="option-container">
+    <div class="radio-div" onclick="selectOption(this)">Option 1</div>
+    <div class="radio-div" onclick="selectOption(this)">Option 2</div>
+    <div class="radio-div" onclick="selectOption(this)">Option 3</div>
+  </div>
+
+  <script>
+    function selectOption(clickedDiv) {
+      const allOptions = document.querySelectorAll('.radio-div');
+      allOptions.forEach(div => div.classList.remove('selected'));
+      clickedDiv.classList.add('selected');
+    }
+  </script>
+
+</body>
+</html>
