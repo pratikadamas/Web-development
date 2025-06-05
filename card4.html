@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Course Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #333;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .course-card {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 10px 0;
+      background: #fff;
+      transition: background-color 0.2s ease;
+    }
+
+    .course-card:hover {
+      background-color: #f0f0f0;
+    }
+
+    .course-card input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .course-info {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 30px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Course Selection Form</h1>
+
+  <!-- AEC -->
+  <h2>AEC Course Category</h2>
+  <div class="course-card">
+    <label>
+      <input type="radio" name="aec_course" value="AI-101" required>
+      <div class="course-info">
+        <strong>Artificial Intelligence</strong><br>
+        Code: AI-101 | Instructor: Dr. Anya Sharma<br>
+        Introduction to AI concepts, ML basics, ethics. (3 Credits)
+      </div>
+    </label>
+  </div>
+
+  <div class="course-card">
+    <label>
+      <input type="radio" name="aec_course" value="ML-205">
+      <div class="course-info">
+        <strong>Machine Learning Fundamentals</strong><br>
+        Code: ML-205 | Instructor: Prof. Rahul Kumar<br>
+        Supervised and unsupervised learning. (4 Credits)
+      </div>
+    </label>
+  </div>
+
+  <!-- VAC -->
+  <h2>VAC Course Category</h2>
+  <div class="course-card">
+    <label>
+      <input type="radio" name="vac_course" value="GD-101" required>
+      <div class="course-info">
+        <strong>Graphic Design Principles</strong><br>
+        Code: GD-101 | Instructor: Mr. Alok Verma<br>
+        Basics of graphic design. (3 Credits)
+      </div>
+    </label>
+  </div>
+
+  <div class="course-card">
+    <label>
+      <input type="radio" name="vac_course" value="PH-202">
+      <div class="course-info">
+        <strong>Photography Basics</strong><br>
+        Code: PH-202 | Instructor: Ms. Riya Sen<br>
+        Intro to DSLR photography and editing. (2 Credits)
+      </div>
+    </label>
+  </div>
+
+  <!-- SAC -->
+  <h2>SAC Course Category</h2>
+  <div class="course-card">
+    <label>
+      <input type="radio" name="sac_course" value="SS-101" required>
+      <div class="course-info">
+        <strong>Soft Skills Training</strong><br>
+        Code: SS-101 | Instructor: Mr. Raj Mehra<br>
+        Communication, teamwork, and leadership. (2 Credits)
+      </div>
+    </label>
+  </div>
+
+  <div class="course-card">
+    <label>
+      <input type="radio" name="sac_course" value="PE-201">
+      <div class="course-info">
+        <strong>Personality Enhancement</strong><br>
+        Code: PE-201 | Instructor: Dr. Anita Rao<br>
+        Personal development and confidence-building. (3 Credits)
+      </div>
+    </label>
+  </div>
+
+  <button type="submit">Submit</button>
+
+</body>
+</html>
