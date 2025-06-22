@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+ *{
+     margin: 0%;
+     padding: 0;
+     box-sizing: border-box;
+
+        }
+        
+ body {
+    background-image: url("image/home1.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    height: 100vh;
+}
+.nav{
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    margin-top: 10px;
+    margin-left:15%;
+
+}
+.nav ul{
+    padding: 0;
+
+}
+
+.nav ul li{
+    float: left;
+    background-color: black;
+    color:white;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    text-align: center;
+    list-style: none;
+    opacity: 0.6;
+   
+   
+}
+
+.nav ul li ul{
+    display: none;
+}
+
+.nav ul li:hover>ul{
+    display: block;
+}
+.nav ul li:hover{
+    background-color:rgb(37, 60, 195) ;
+    opacity: 0.9;
+    
+   
+}
+
+
+</style>
+
+
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li>USA
+                <ul>
+                    <li>New York</li>
+                </ul>
+
+            </li>
+            <li>INDIA
+                <ul>
+                    <li>Kolkata</li>
+                <li>Kasmir</li>
+                <li> Bangalore</li>
+                </ul>
+                
+            </li>
+            <li>FRANCE
+                <ul>
+                    <li>Bonifacio</li>
+                <li>Millau Bridge</li></ul>
+            </li>
+            <li>AUSTRALIA
+                <ul>
+                    <li>Sydney Opera House</li>
+                    <li>Royal Botanic Gardens Victoria</li>
+                    <li>Melbourne</li>
+                </ul>
+            </li>
+            <li>ENGLAND
+                <ul><li>Manchester</li></ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
