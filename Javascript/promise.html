@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Promise Example</h2>
+  <p id="output"></p>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function fetchData() {
+      return new Promise(function(resolve, reject) {
+        output.innerHTML += "Fetching data...<br>";
+
+        setTimeout(() => {
+          let success = false; // Try changing this to false to see reject
+
+          if (success) {
+            resolve("Data loaded successfully!");
+          } else {
+            reject("Failed to load data.");
+          }
+        }, 2000); // Simulate a 2 second delay
+      });
+    }
+
+    fetchData()
+      .then(response => {
+        output.innerHTML += "✅ " + response + "<br>";
+      })
+      .catch(error => {
+        output.innerHTML += "❌ " + error + "<br>";
+      });
+  </script>
+</body>
+</html>
