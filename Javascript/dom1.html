@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="text"] {
+            width: 200px;
+            height: 30px;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #bc10ae;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <span>NAME</span>
+    <input type="text" id="input1" placeholder="Type Name here...">
+    <button id="btn1">Click Me</button>
+    <p id="output"></p>
+</body>
+</html>
+<script>
+    const input = document.getElementById('input1');
+    const output = document.getElementById('output');
+    document.getElementById('btn1').addEventListener('click', function() {
+        if (!confirm('Are you sure you want to submit?')) {
+            output.textContent = 'Submission cancelled.';
+            return;
+        }
+
+        const name = input.value.trim();
+        if (name) {
+            output.textContent = `Hello, ${name}!`;
+        } else {
+            output.textContent = 'Please enter a name.';
+        }
+    });
+
+</script>
