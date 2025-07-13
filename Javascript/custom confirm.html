@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Confirm</title>
+  <style>
+    /* Basic styling for the custom confirm box */
+    .custom-confirm {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none; /* Hidden by default */
+    }
+
+    .confirm-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .confirm-box p {
+      margin: 0 0 20px;
+      font-size: 16px;
+    }
+
+    .confirm-buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .confirm-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .confirm-buttons .confirm-yes {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .confirm-buttons .confirm-no {
+      background: #f44336;
+      color: white;
+    }
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="showConfirm" style="margin: 20px 10px ;padding: 10px 20px; border-radius: 4px; cursor: pointer; color: white; background: #007BFF; border: none;">Show Custom Confirm</button>
+
+  <div class="custom-confirm" id="customConfirm">
+    <div class="confirm-box">
+      <p>Are you sure you want to proceed?</p>
+      <div class="confirm-buttons">
+        <button type="button" class="confirm-yes" id="confirmYes" value="Yes">Yes</button>
+        <button type="button" class="confirm-no" id="confirmNo" value="No">No</button>
+      </div>
+    </div>
+  </div>
+  <div class="result">
+    <h1> </h1>
+  </div>
+
+  <script>
+    // JavaScript to handle the custom confirm box
+    const showConfirmButton = document.getElementById('showConfirm');
+    const customConfirm = document.getElementById('customConfirm');
+    const confirmYes = document.getElementById('confirmYes');
+    const confirmNo = document.getElementById('confirmNo');
+
+    // Show the custom confirm box
+    showConfirmButton.addEventListener('click', () => {
+      customConfirm.style.display = 'flex';
+    });
+
+    // Handle "Yes" button click
+    confirmYes.addEventListener('click', () => {
+      //alert('You clicked Yes!');
+     
+        document.querySelector('.result').style.display = 'block';
+        document.querySelector('.result h1').innerText = "You clicked Yes!, your data submitted successfully!";
+        
+      customConfirm.style.display = 'none';
+    });
+
+    // Handle "No" button click
+    confirmNo.addEventListener('click', () => {
+     // alert('You clicked No!');
+    
+         document.querySelector('.result').style.display = 'block';
+        document.querySelector('.result h1').innerText = "You clicked No!, your data submission cancelled!";
+        
+    
+      customConfirm.style.display = 'none';
+    });
+
+ 
+
+  </script>
+</body>
+</html>
+
