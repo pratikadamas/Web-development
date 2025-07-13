@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .main {
+            width:40%;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:linear-gradient(45deg, #430387, #2cb8e7);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+            flex-direction: column;
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <div class="main">
+        <h2> Payment Successful</h2>
+        <div class="btn2">
+            <button onclick="closepopup()" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+                Close
+            </button>
+        </div>
+        
+        
+     </div>
+     <div class="btn">
+        <button onclick="showPopup()" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Show Popup
+        </button>
+     </div>
+  
+</body>
+</html>
+<script>
+    function showPopup() {
+        document.querySelector('.main').style.display = 'flex';
+        document.querySelector('.btn').style.display = 'none';
+    }
+    function closepopup() {
+        document.querySelector('.main').style.display = 'none';
+        document.querySelector('.btn').style.display = 'block';
+    }
+</script>
