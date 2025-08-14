@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const myForm = document.getElementById('myForm');
+
+    myForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+
+        if (name === '') {
+            alert('Name is required!');
+            return;
+        }
+
+        if (email === '') {
+            alert('Email is required!');
+            return;
+        }
+
+        // Basic email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address!');
+            return;
+        }
+
+        console.log('Form data:', { name, email });
+
+        // Example of sending data (uncomment to test)
+        // const formData = new FormData(myForm);
+        // fetch('/submit-data', {
+        //     method: 'POST',
+        //     body: formData
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log('Server response:', data))
+        // .catch(error => console.error('Error:', error));
+
+        alert('Form submitted successfully (client-side)!');
+        myForm.reset(); // Clear the form
+    });
+</script>
+</body>
+</html>
