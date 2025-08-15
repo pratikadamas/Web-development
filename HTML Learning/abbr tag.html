@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Abbreviation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        abbr {
+            text-decoration: none;
+            border-bottom: 1px dashed #3498db;
+            color: #2980b9;
+            cursor: help;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        abbr:hover {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+            
+        }
+        
+        abbr:hover::after {
+            content: attr(title);
+            position: absolute;
+            left: 50%;
+            bottom: 100%;
+            transform: translateX(-50%);
+            background-color: #2c3e50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+      
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Abbreviation Example</h1>
+    
+    <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+    
+    <p>Other common abbreviations include:</p>
+    <ul>
+        <li><abbr title="HyperText Markup Language">HTML</abbr></li>
+        <li><abbr title="Cascading Style Sheets">CSS</abbr></li>
+        <li><abbr title="JavaScript">JS</abbr></li>
+        <li><abbr title="As Soon As Possible">ASAP</abbr></li>
+        <li><abbr title="For Your Information">FYI</abbr></li>
+    </ul>
+    
+    <p>The <abbr title="National Aeronautics and Space Administration">NASA</abbr> is responsible for the U.S. space program.</p>
+</body>
+</html>
