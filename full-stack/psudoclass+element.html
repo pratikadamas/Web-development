@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Class and Pseudo-Element Example</title>
+    <style>
+        /* --- Pseudo-Classes: Modifying an element's state --- */
+
+/* Style a button when the user hovers over it */
+.call-to-action:hover {
+  background-color: #2c6fbb;
+  cursor: pointer;
+}
+
+/* Add a pressed effect when the button is clicked */
+.call-to-action:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* Style the very first list item */
+li:first-child {
+  font-weight: bold;
+  color: #c93d3d;
+}
+
+/* --- Pseudo-Elements: Modifying parts of an element or inserting content --- */
+
+/* Use ::before to insert a decorative element */
+h1::before {
+  content: "✨ ";
+}
+
+/* Use ::after to insert an icon */
+.call-to-action::after {
+  content: " →";
+}
+
+/* Style the first line of a paragraph */
+p::first-line {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Style the first letter of a paragraph */
+p::first-letter {
+  font-size: 2em;
+  color: #c93d3d;
+}
+
+    </style>
+</head>
+<body>
+    <button class="call-to-action">Hover and Click Me</button>
+
+    <h1>The Pseudo-Title</h1>
+
+    <ul>
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Third list item</li>
+    </ul>
+
+    <p>
+        The first line of this paragraph will be styled.
+        <br>
+        The first letter of this paragraph will also be styled.
+    </p>
+</body>
+</html>
