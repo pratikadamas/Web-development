@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #121212;
+            margin-top: 50px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #c5bcbc;
+            border: #070707 1px solid;
+            height: 100px;
+            width: 100px;
+            margin-left: 200px;
+        }
+        #colorDisplay {
+            
+            margin-top: 50px;
+            margin-left: 150px;
+        }
+        .final {
+            margin-top: 50px;
+            margin-left: 650px;
+            font-size: 1.5rem;
+            color: #121212;
+            
+        }
+        select {
+            padding: 10px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+   <marquee behavior="scroll" direction="left"> <h1>Welcome to the Color Picker Game! Color Picker Game</h1></marquee>
+
+    <div id="colorDisplay">
+        <select name="select color" id="color" >
+
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="yellow">Yellow</option>
+            <option value="purple">Purple</option>
+            <option value="orange">Orange</option>
+            <option value="pink">Pink</option>
+            <option value="brown">Brown</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="grey">Grey</option>
+
+        </select>
+
+        <button id="submitColor" onclick="func()">Predict the Color</button>
+        <div id="result"></div>
+    </div>
+<br>
+<br>
+<br><br>
+<div class="final">
+    Human Score: 
+    <div class="human"> 0 </div>
+    <br>
+    Computer Score: 
+    <div class="computer">  0 </div>
+</div>
+
+    <script>
+
+         var humanScore = 0;
+         var computerScore = 0;
+        const colorarray = ["red", "green", "blue", "yellow", "purple", "orange", "pink", "brown", "black", "white","grey"];
+
+        function func() {
+            var usercolor = document.getElementById("color").value;
+            var computercIndex = Math.floor(Math.random() * colorarray.length);
+
+            document.getElementById("result").style.backgroundColor= colorarray[computercIndex]; 
+
+
+            if (usercolor === colorarray[computercIndex]) {
+             
+                document.querySelector(".human").innerHTML=humanScore+=1;
+                document.querySelector(".computer").innerHTML=computerScore;
+            } else {
+               
+                document.querySelector(".computer").innerHTML=computerScore+=1;
+              document.querySelector(".human").innerHTML=humanScore;
+            }
+
+            
+        }
+    </script>
+</body>
+</html>
