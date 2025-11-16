@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .model{
+            
+            width:300px;
+            height: 400px;
+           left: 50%;
+            margin-top: 50px;
+            font-size: 20px;
+            padding: 20px;
+           
+             
+            border:2px solid black;
+            opacity: 0;
+          
+            
+            
+            
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+           margin: 5px 0 ;
+        ;
+            box-sizing: border-box;
+                                             
+        }
+        #btn{
+            padding:10px 20px;
+            font-size:16px;
+            cursor:pointer;
+            margin-left: 47%;
+            background-color: violet;
+            color:rgb(0, 30, 255);
+        }
+        #btn:hover{
+            background-color: rgb(17, 128, 0);
+            color:white;
+        }
+       
+
+        #sub{
+            padding: 5px 15px;
+            font-size:16px;
+            cursor:pointer;
+           
+            background-color: rgb(2, 189, 2);
+            color:rgb(0, 47, 255); 
+        }
+span{
+    cursor: pointer;
+    margin-right: 0px;
+}
+    </style>
+</head>
+<body
+>
+<button id="btn" >Sign up</button>
+
+
+<center>
+        <div class="model">
+            <h4>Sign Up Form <span>&times;</span> </h4>
+            <label for="name"> Name:</label>
+            <input type="text" id="name" name="name">
+            <br><br>
+            <label for="email"> Email:</label>
+            <input type="email" id="email" name="email">
+            <br><br>
+            <label for="password"> Password:</label>
+            <input type="password" id="password" name="password">
+            <br><br>
+            <button type="submit" id="sub" onclick="submitForm()">Submit</button>
+        </div>
+        </center>
+
+        <script>
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", function() {
+        document.querySelector(".model").style.opacity = "1";
+    });
+    const span = document.querySelector("span");
+    span.addEventListener("click", function() {
+        document.querySelector(".model").style.opacity = "0";
+    });
+
+        </script>
+    
+</body>
+
+</html>
