@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            background-color:blue;
+            color:rgb(240, 95, 95);
+            font-weight: bold;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            transition: 0.7s ease-in-out;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <button>add class</button>
+    <button>remove class</button>
+    <button>toggle class</button><hr>
+
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, placeat? Nemo, nulla? Incidunt laudantium quasi consectetur reiciendis exercitationem iure iste voluptas qui cupiditate natus officiis sunt, sed, facere quod facilis!</p>
+<script>
+    const p = document.querySelector("p");
+    const btns = document.querySelectorAll("button");
+
+    btns[0].addEventListener("click", function(){
+        p.classList.add("active");
+    });
+
+    btns[1].addEventListener("click", function(){
+        p.classList.remove("active");
+    });
+
+    btns[2].addEventListener("click", function(){
+        p.classList.toggle("active");
+    });
+</script>
+</body>
+</html>
