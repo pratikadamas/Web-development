@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Voice Assistant Table Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      padding: 8px 12px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #222;
+      color: white;
+    }
+
+    tr.hidden {
+      display: none;
+    }
+
+    #status {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .listening {
+      background: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Voice Assistant Search (60 Records)</h1>
+
+<div class="controls">
+  <input type="text" id="searchInput" placeholder="Type or speak to search..." />
+  <button id="voiceBtn">🎤 Speak</button>
+</div>
+
+<div id="status">Idle</div>
+
+<table id="dataTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  </tbody>
+</table>
+
+<script>
+// -------------------- GENERATE 60 DUMMY RECORDS --------------------
+const tbody = document.querySelector('#dataTable tbody');
+const cities = ['Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'Pune', 'Bangalore'];
+
+for (let i = 1; i <= 60; i++) {
+  const row = document.createElement('tr');
+  row.innerHTML = `<td>${i}</td><td>User ${i}</td><td>${cities[i % cities.length]}</td>`;
+  tbody.appendChild(row);
+}
+
+// -------------------- TEXT SEARCH --------------------
+const searchInput = document.getElementById('searchInput');
+
+function filterTable(query) {
+  const rows = tbody.querySelectorAll('tr');
+
+  rows.forEach(row => {
+    const text = row.innerText;
+
+    // Case-insensitive but ACCURATE matching
+    const match = text.toLowerCase().includes(query.toLowerCase());
+    row.classList.toggle('hidden', !match);
+  });
+}
+
+searchInput.addEventListener('input', () => {
+  filterTable(searchInput.value);
+});
+
+// -------------------- SMART VOICE ASSISTANT (GOOGLE-LIKE) --------------------
+const voiceBtn = document.getElementById('voiceBtn');
+const statusText = document.getElementById('status');
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const synth = window.speechSynthesis;
+
+function speak(text) {
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.rate = 1;
+  utter.pitch = 1.1;
+  utter.lang = 'en-IN';
+  synth.cancel();
+  synth.speak(utter);
+}
+
+if (!SpeechRecognition) {
+  alert('Voice recognition not supported. Use Google Chrome on localhost.');
+}
+
+const recognition = new SpeechRecognition();
+recognition.lang = 'en-IN';
+recognition.continuous = false;
+recognition.interimResults = false;
+
+voiceBtn.addEventListener('click', () => {
+  recognition.start();
+});
+
+recognition.onstart = () => {
+  statusText.textContent = 'Listening... Speak now';
+  voiceBtn.classList.add('listening');
+  speak('I am listening. Tell me what to find.');
+};
+
+recognition.onend = () => {
+  voiceBtn.classList.remove('listening');
+};
+
+recognition.onresult = (event) => {
+  const spokenText = event.results[0][0].transcript.toLowerCase();
+  statusText.textContent = 'You said: ' + spokenText;
+
+  // COMMAND PARSING
+  let query = spokenText
+    .replace(/find|show|search|i am listening/gi, '')
+    .trim();
+
+  // REMOVE PUNCTUATION & TRAILING DOTS (YOUR REAL BUG)
+  query = query.replace(/[.,!?]/g, '').trim();
+
+  searchInput.value = query;
+  filterTable(query);
+
+  const visibleRows = [...tbody.querySelectorAll('tr:not(.hidden)')].length;
+
+  if (visibleRows === 0) {
+    speak('No matching records found');
+  } else {
+    speak(visibleRows + ' results found');
+  }
+};
+
+recognition.onerror = (event) => {
+  statusText.textContent = 'Mic error: ' + event.error;
+  speak('Microphone error. Check permissions.');
+};
+</script>
+
+</body>
+</html>
