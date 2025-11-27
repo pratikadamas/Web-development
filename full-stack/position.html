@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position property
+
+    </title>
+
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            top: 15px;
+            left: 60px;
+            box-shadow: 0 2px 10px rgba(9, 9, 9, 0.5);
+           
+           
+        }
+
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+           
+           
+        }
+        .abs {
+            width: 500px;
+            height: 400px;
+            background-color: rgb(255, 179, 0);
+            
+            margin-top: 20px;
+        }
+        .abs div{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+        }
+        .item1{
+            position: absolute;
+            top: 120px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>relative</h1>
+    
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <h2>absolute</h2>
+    <div class="abs">
+        <div class="item1">1 absolute </div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+    </div>
+</body>
+</html>
