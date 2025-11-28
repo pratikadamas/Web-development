@@ -48,6 +48,11 @@ numbers.forEach((number) => {
   console.log(number);
 });
 
+
+for(let n of numbers){
+    console.log("for of loop number: "+n);
+}
+
 console.log("for of loop example:");
 const fruits = ['apple', 'banana', 'cherry'];
 for (const fruit of fruits) {
