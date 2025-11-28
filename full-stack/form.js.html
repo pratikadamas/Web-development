@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Handling in JS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h1 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: 400; /* fixed */
+      margin-bottom: 15px;
+    }
+    .container {
+      max-width: 300px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #080808;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .container input {
+      padding: 10px 40px;
+      margin-bottom: 10px;
+    }
+    .container button {
+      padding: 10px 20px;
+      margin-left: 30%;
+    }
+    .tab {
+      position: absolute;
+      width: 100%;
+      margin-left: 30%;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px 30px;
+      text-align: center;
+    }
+    table button {
+      padding: 5px 10px;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <form id="myForm">
+    <h1>Fill the form</h1>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <button type="submit">Save</button>
+  </form>
+</div>
+
+<div class="tab">
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <!-- rows will be injected here -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+  let form = document.querySelector("#myForm");
+  let userDetails = [];
+  let tbody = document.querySelector("#tbody");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let name = event.target.name.value;
+    let email = event.target.email.value;
+    let password = event.target.password.value;
+
+    let userObj = { name, email, password };
+
+    // check duplicate email
+    let checkEmail = userDetails.find((user) => user.email === email);
+    if (checkEmail) {
+      alert("Email already exists");
+      return;
+    }
+
+    // add new user
+    userDetails.push(userObj);
+    storeData();
+
+    // reset form
+    event.target.reset();
+  });
+
+  function storeData() {
+    let row = "";
+    userDetails.forEach((user, index) => {
+      row += `<tr>
+        <td>${index + 1}</td>
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+        <td>${user.password}</td>
+        <td>
+          <button style="color: green;" onclick="editUser(${index})">Edit</button>
+          <button style="color: red;" onclick="deleteUser(${index})">Delete</button>
+        </td>
+      </tr>`;
+    });
+    tbody.innerHTML = row;
+  }
+
+  // delete user
+  function deleteUser(index) {
+    userDetails.splice(index, 1); // remove from array
+    storeData(); // refresh table
+  }
+
+  // edit user (basic version: load data back into form)
+  function editUser(index) {
+    let user = userDetails[index];
+    document.querySelector("#name").value = user.name;
+    document.querySelector("#email").value = user.email;
+    document.querySelector("#password").value = user.password;
+
+    // remove old entry so saving will overwrite
+    userDetails.splice(index, 1);
+    storeData();
+  }
+</script>
+
+</body>
+</html>
