@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Welcome to the DOM Tutorial</h1>
+        <p>This tutorial will help you understand the Document Object Model.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus voluptate tenetur aliquid quod itaque voluptates non corporis accusantium voluptatibus numquam?
+        </p>
+        <button>save me!</button>
+        <h2>
+            hello world !
+        </h2>
+    </div>
+    <script>
+
+        //traversing the DOM
+        let maindiv = document.querySelector(".main");
+
+        for (let element of maindiv.children) {
+            console.log(element);
+        }
+       // console.log(maindiv.children[0]);
+       // console.log(maindiv.children[1]);
+        //console.log(maindiv.children[2]);
+
+
+        let btn = document.querySelector("button");
+        console.log(btn.parentElement);
+
+            // how to access siblings next and previous
+        console.log("next sibling ",btn.nextElementSibling);
+        console.log("previous sibling ",btn.previousElementSibling);
+    </script>
+</body>
+</html>
