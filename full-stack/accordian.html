@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgb(231, 12, 224);
+        }
+        .faqdiv{
+            max-width: 800px;
+            margin: auto;
+            background-color: rgb(231, 231, 231);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .faq{
+            background-color: #939496;
+            
+            padding: 15px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .ans{
+            background-color: #caccd1;
+            color: #060606;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        .showans{
+            display: block;
+        } 
+        .faq h2{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>FAQs about Taxi Services</h1>
+
+    <div class="faqdiv">
+
+        <div class="faq">
+            <h2> 1. How to I book a taxi? <span>+</span></h2>
+
+               <div class="ans">
+            <p>You can book a taxi through our mobile app or website by entering your pickup location, destination, and preferred vehicle type. Once you confirm the booking, a driver will be assigned to you.</p>
+        </div>
+        </div>
+     
+        <br>
+        <hr>
+
+        <div class="faq">
+            <h2> 2. What are the payment options available?  <span>+</span></h2>
+
+             <div class="ans">
+            <p>We accept various payment methods including credit/debit cards, digital wallets, and cash payments. You can choose your preferred payment option during the booking process.</p>
+        </div>
+        </div>      
+<br>        
+    <hr>
+        
+        <div class="faq">
+            <h2>3. Is there a cancellation fee? <span> +</span></h2>
+
+              <div class="ans">
+            <p>Cancellations made within a certain time frame may incur a cancellation fee. Please refer to our cancellation policy on the app or website for detailed information.</p>
+        </div>
+        </div>
+      
+        <br>
+        <hr>
+
+        <div class="faq">
+            <h2>4. Are the drivers background checked? <span>+</span></h2>
+
+               <div class="ans">
+            <p>Yes, all our drivers undergo thorough background checks and vehicle inspections to ensure the safety and security of our passengers.</p>
+        </div>
+        </div>
+    
+
+    </div>
+
+</body>
+
+<script>
+    let allquestions = document.querySelectorAll(".faq h2");
+    console.log(allquestions);
+    allquestions.forEach((faq,index)=>{
+      //  console.log(faq);
+      faq.addEventListener("click",()=>{
+        faq.nextElementSibling.classList.toggle("showans");
+      })
+    })
+</script>
+</html>
