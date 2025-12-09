@@ -24,9 +24,10 @@
         for (let element of maindiv.children) {
             console.log(element);
         }
+
        // console.log(maindiv.children[0]);
        // console.log(maindiv.children[1]);
-        //console.log(maindiv.children[2]);
+      // console.log(maindiv.children[2]);
 
 
         let btn = document.querySelector("button");
@@ -35,6 +36,10 @@
             // how to access siblings next and previous
         console.log("next sibling ",btn.nextElementSibling);
         console.log("previous sibling ",btn.previousElementSibling);
+
+
+        // nodes 
+        console.log("nodes  ",maindiv.childNodes);  // we can apply foreach loop on nodes but not on HTML collection
     </script>
 </body>
 </html>
