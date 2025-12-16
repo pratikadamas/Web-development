@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo-Classes Example</title>
+    <style>
+        /* Reset basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Link pseudo-classes */
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+        a:visited {
+            color: purple;
+        }
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+        a:active {
+            color: green;
+        }
+
+        /* Structural pseudo-classes for list items */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        li:first-child {
+            background-color: lightgreen;
+        }
+        li:last-child {
+            background-color: lightcoral;
+        }
+        li:nth-child(even) {
+            background-color: lightblue;
+        }
+
+        /* Form pseudo-classes */
+        input {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        input:focus {
+            border: 2px solid orange;
+            outline: none;
+        }
+        input:valid {
+            border-color: green;
+        }
+        input:invalid {
+            border-color: red;
+        }
+
+        /* Button interaction */
+        button {
+            padding: 10px 20px;
+            background-color: gray;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgray;
+        }
+        button:active {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Pseudo-Classes Demo</h1>
+
+    <h2>Link States</h2>
+    <p>Hover over these links to see pseudo-classes in action:</p>
+    <a href="#">Unvisited Link</a><br>
+    <a href="https://example.com">Visited Link (click to test)</a>
+
+    <h2>Structural Pseudo-Classes</h2>
+    <ul>
+        <li>First item (first-child)</li>
+        <li>Second item (even)</li>
+        <li>Third item</li>
+        <li>Fourth item (even)</li>
+        <li>Fifth item (last-child)</li>
+    </ul>
+
+    <h2>Form Pseudo-Classes</h2>
+    <form>
+        <label for="email">Email (focus and validation):</label><br>
+        <input type="email" id="email" required placeholder="Enter a valid email">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>This example demonstrates various pseudo-classes. Open in a browser to interact!</p>
+</body>
+</html>
