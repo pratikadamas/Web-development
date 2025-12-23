@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wheather app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Weather app</h2>
+    <center>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Check the weather in your city!">
+        <button id="btn">Get Weather</button>
+        </div>
+        <hr>
+        <br>
+
+        <div class="weather">
+            <marquee behavior="scroll" direction="">
+                  <img src="images\1163657.png" alt="">
+                    <img src="images\9755210.png" alt="">
+                    <img src="images\4814268.png" alt="">
+                    <img src="images\sunny1.png" alt="">
+            </marquee>
+
+
+            <div class="temper">
+                <img src="images\temp.png" alt="">
+                 <h3 class="temp" style="color: aliceblue;"> <b>Temperature :</b> 44 °C</h3>
+            </div>
+           
+            <h3 class="city" style="color: aliceblue;"><b>City Name :</b> Kolkata</h3>
+            <div class="humidity">
+                <img src="images\humidity.png" alt="">
+                        
+                       <h3  class="humidi" style="color: aliceblue;"> 60%</h3>
+
+            </div>
+         
+<div class="wind">
+            <img src="images\wind1.png" alt="">
+            <h3 class="wind-speed" style="color: aliceblue;"><b>Wind Speed :</b> 10 km/h</h3>
+            </div>
+
+                
+         
+
+        </div>
+        
+    </div>
+
+    </center>
+
+   
+
+<!-- <script>
+async function getdata(){
+        const apiKey = "";
+    const cityname=document.querySelector("input").value;
+
+    const apiurl=`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`
+
+    const responce = await fetch(apiurl);
+    const data = await responce.json();
+    console.log(data);
+    
+document.querySelector(".city").innerText="City Name : "+data.name;
+document.querySelector(".temp").innerText="Temperature : "+data.main.temp+" °C";
+document.querySelector(".humidi").innerText="Humidity : "+data.main.humidity+" %";
+document.querySelector(".wind-speed").innerText="Wind Speed : "+data.wind.speed+" km/h";
+ 
+
+}
+document.getElementById("btn").addEventListener("click",getdata);
+
+ 
+</script> -->
+
+<script>
+async function getdata() {
+           const apiKey = "YOUR_API_KEY_HERE"; // Replace with your actual API key
+    const input = document.querySelector("input");
+    const cityname = input.value.trim();
+
+    if (!cityname) {
+        alert("Please enter a city name");
+        return;
+    }
+
+    const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`;
+
+    try {
+        const response = await fetch(apiurl);
+
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
+
+        const data = await response.json();
+
+        document.querySelector(".city").innerText =
+            "City Name : " + data.name;
+
+        document.querySelector(".temp").innerText =
+            "Temperature : " + data.main.temp + " °C";
+
+        document.querySelector(".humidi").innerText =
+            "Humidity : " + data.main.humidity + " %";
+
+        const windKmh = (data.wind.speed * 3.6).toFixed(1);
+        document.querySelector(".wind-speed").innerText =
+            "Wind Speed : " + windKmh + " km/h";
+
+    } catch (error) {
+        alert(error.message);
+        console.error(error);
+    }
+}
+
+document.getElementById("btn").addEventListener("click", getdata);
+</script>
+
+
+
+</body>
+</html>
