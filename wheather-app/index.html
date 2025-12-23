@@ -49,39 +49,18 @@
          
 
         </div>
-        
+    <hr>    
     </div>
+    
 
     </center>
 
-   
 
-<!-- <script>
-async function getdata(){
-        const apiKey = "";
-    const cityname=document.querySelector("input").value;
 
-    const apiurl=`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`
-
-    const responce = await fetch(apiurl);
-    const data = await responce.json();
-    console.log(data);
-    
-document.querySelector(".city").innerText="City Name : "+data.name;
-document.querySelector(".temp").innerText="Temperature : "+data.main.temp+" °C";
-document.querySelector(".humidi").innerText="Humidity : "+data.main.humidity+" %";
-document.querySelector(".wind-speed").innerText="Wind Speed : "+data.wind.speed+" km/h";
- 
-
-}
-document.getElementById("btn").addEventListener("click",getdata);
-
- 
-</script> -->
 
 <script>
 async function getdata() {
-           const apiKey = "YOUR_API_KEY_HERE"; // Replace with your actual API key
+const apiKey = "56716f9b016d5dd5c321e58935adc12f";
     const input = document.querySelector("input");
     const cityname = input.value.trim();
 
