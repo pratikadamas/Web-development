@@ -1,10 +1,19 @@
 *{
-  margin: 0;
-  padding: 0  ;
+  margin: 0%;
+  padding: 0%;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+
 }
-body {
-  background-color: #232222;
-  color: #c6bfbf;
+body{
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+button{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
 }
