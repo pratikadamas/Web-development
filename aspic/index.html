@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>20-Second Math Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <marquee><h1>Beat the Clock, Solve the Block.</h1></marquee>
+  <div class="card">
+    <!-- START -->
+    <section id="start" class="screen active">
+      <div class="row">
+        <div>
+          
+        <h1>20‑Second Math Sprint</h1>
+         
+        </div>
+        <div class="pill">Press <b>Enter</b> to submit</div>
+      </div>
+      <div style="margin-top:18px" class="row">
+        <button id="btnStart" class="btn-primary">Start Game</button>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="screen">
+      <div class="row">
+        <div class="pill" id="qLabel">Question 1 / 10</div>
+        <div class="pill" id="tLabel">Time: 20.0s</div>
+      </div>
+
+      <div class="progress-wrap"><div id="bar" class="bar"></div></div>
+
+      <div id="eq" class="equation">1 + 2 + 3 = ?</div>
+
+      <div class="controls">
+        <input id="ans" type="number" inputmode="numeric" placeholder="Type answer…" />
+        <button id="btnSubmit" class="btn-primary">Submit</button>
+      </div>
+      <p style="margin-top:10px;color:rgb(129, 244, 22)">
+        Tip: × and ÷ happen before + and −.
+      </p>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="screen">
+      <div class="row">
+        <div>
+          <h1 id="scoreTitle">Score: 0 / 10</h1>
+          <p id="scoreText">Review below.</p>
+        </div>
+        <button id="btnRestart" class="btn-primary">Play Again</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Equation</th>
+            <th>Your answer</th>
+            <th>Correct</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody id="reviewBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
