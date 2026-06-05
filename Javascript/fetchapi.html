@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let getdata= async()=>
+{
+    let data=  await fetch(`https://dummyjson.com/product`);
+    console.log(data);
+
+    let details= await data.json();
+    console.log(details)
+     console.log(details.products[1])
+
+}
+
+getdata();
+
+
+
+
+</script>
+</html>
