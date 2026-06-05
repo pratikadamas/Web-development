@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Card Matching Game</title>
+  <link rel="stylesheet" href="g2-style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ========== START SCREEN ========== -->
+  <section id="startScreen" class="screen active">
+    <h1>🃏 Card Matching Game</h1>
+    <p>Match the computer's card to score points!</p>
+
+    <ul class="rules-list">
+      <li><span>🎴</span> 8 cards face-down (4 pairs)</li>
+      <li><span>🤖</span> Computer flips one card each round</li>
+      <li><span>👆</span> You pick a card to find the match</li>
+      <li><span>✅</span> If both match → you score 1 point</li>
+      <li><span>🔄</span> If no match → both cards flip back</li>
+      <li><span>🧠</span> Remember card positions to win!</li>
+    </ul>
+
+    <button class="btn-primary btn-full" id="btnStart">▶ &nbsp;Start Game</button>
+  </section>
+
+  <!-- ========== GAME SCREEN ========== -->
+  <section id="gameScreen" class="screen">
+    <div class="row">
+      <h1>🃏 Card Match</h1>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-pill round-pill" id="roundLabel">Round: 1</div>
+      <div class="stat-pill score-pill" id="scoreLabel">Score: 0</div>
+      <div class="stat-pill turn-pill" id="turnLabel">Pairs Left: 4</div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-section">
+      <div class="progress-head">
+        <span>Pairs Matched</span>
+        <span id="progText">0 / 4</span>
+      </div>
+      <div class="progress-wrap">
+        <div id="progBar" class="bar"></div>
+      </div>
+    </div>
+
+    <!-- Message -->
+    <div class="message" id="msg">🤖 Computer is picking a card...</div>
+
+    <!-- Card Grid -->
+    <div class="card-grid" id="cardGrid"></div>
+  </section>
+
+  <!-- ========== RESULT SCREEN ========== -->
+  <section id="resultScreen" class="screen">
+    <h1 style="text-align:center">🏆 Game Over!</h1>
+
+    <div class="score-big" id="finalScore">0 / 4</div>
+    <div class="score-sub" id="gradeMsg">Great memory!</div>
+
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="num" style="color:var(--good)" id="rcOk">0</div>
+        <div class="lbl">Matched</div>
+      </div>
+      <div class="result-box">
+        <div class="num" style="color:var(--bad)" id="rcMiss">0</div>
+        <div class="lbl">Missed</div>
+      </div>
+      <div class="result-box">
+        <div class="num" style="color:var(--accent)" id="rcRounds">0</div>
+        <div class="lbl">Rounds</div>
+      </div>
+    </div>
+
+    <!-- Score Progress -->
+    <div class="progress-wrap" style="margin-bottom:16px">
+      <div id="resultBar" class="bar"></div>
+    </div>
+
+    <!-- Round Log -->
+    <div class="log-list" id="logList"></div>
+
+    <button class="btn-primary btn-full" id="btnRestart">🔄 &nbsp;Play Again</button>
+    </section>
+  </div>
+
+  <script src="g2-script.js"></script>
+</body>
+</html>
