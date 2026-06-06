@@ -1,0 +1,25 @@
+<input id="taskInput" placeholder="Enter task">
+<button id="addBtn">Add Task</button>
+
+<ul id="taskList"></ul>
+
+<script>
+document.getElementById("addBtn")
+.addEventListener("click", function () {
+    const value = document.getElementById("taskInput").value.trim();
+    if (!value) return;
+
+    const li = document.createElement("li");
+    li.innerText = value;
+
+    // add remove button
+    const btn = document.createElement("button");
+    btn.innerText = "❌";
+    btn.addEventListener("click", function () {
+        li.remove();  // remove this <li>
+    });
+
+    li.appendChild(btn);
+    document.getElementById("taskList").appendChild(li);
+});
+</script>
