@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+ 
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+           background-color: #0b0b0b;
+        }
+        .main {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            height: 550px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-bottom: 20px;
+            text-align: right;
+           
+            color: #333;
+            padding: 10px 0;
+            border-bottom: 1px solid #030000;
+        ;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 2px solid #111010;
+            border-radius: 5px;
+            text-align: right;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            padding: 15px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #03f10f;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>calculator</h1>
+        <div class="result">
+            <input type="text" id="display" >
+        </div>
+        <div class="buttons">
+            
+            <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">+</button>
+
+            <button onclick="concatenumbers('7')">7</button>
+            <button onclick="concatenumbers('8')">8</button>
+            <button onclick="concatenumbers('9')">9</button>
+            <button onclick="concatenumbers('/')">/</button>
+            <button onclick="concatenumbers('4')">4</button>
+            <button onclick="concatenumbers('5')">5</button>
+            <button onclick="concatenumbers('6')">6</button>
+            <button onclick="concatenumbers('*')">*</button>
+            <button onclick="concatenumbers('1')">1</button>
+            <button onclick="concatenumbers('2')">2</button>
+            <button onclick="concatenumbers('3')">3</button>
+            <button onclick="concatenumbers('-')">-</button>
+            <button onclick="concatenumbers('0')">0</button>
+            <button style="background-color: #f44336;" onclick="calculateResult()">=</button>
+           
+            
+            <button onclick="concatenumbers('sin')">sin</button>
+            <button onclick="concatenumbers('cos')">cos</button>
+            <button onclick="concatenumbers('tan')">tan</button>
+            <button onclick="concatenumbers('log')">log</button>
+            <button onclick="concatenumbers('()')">()</button>
+            <button style="background-color: #f44336;" onclick="clearDisplay()">AC</button>
+
+        </div>
+    </div>
+    
+
+</body>
+</html>
+<script>
+
+function convertToJSExpression(expr) {
+    expr = expr.replace(/sin\s*\(\s*([^)]+)\s*\)/gi, 'Math.sin(Math.PI/180*$1)');
+    expr = expr.replace(/cos\s*\(\s*([^)]+)\s*\)/gi, 'Math.cos(Math.PI/180*$1)');
+    expr = expr.replace(/tan\s*\(\s*([^)]+)\s*\)/gi, 'Math.tan(Math.PI/180*$1)');
+    expr = expr.replace(/log\s*\(\s*([^)]+)\s*\)/gi, 'Math.log10($1)');
+    return expr;
+}
+
+
+
+function concatenumbers(value) {
+    const display = document.getElementById('display');
+    display.value += value;
+}
+function clearDisplay() {
+    document.getElementById('display').value = '';
+}
+function calculateResult() {
+    const display = document.getElementById('display');
+    let jsExp = convertToJSExpression(display.value);
+
+    try {
+        display.value = eval(jsExp);
+    } catch (error) {
+        display.value = 'error';
+    }   
+}
+    e.preventDefault();
+
+
+
+</script>
