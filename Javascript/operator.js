@@ -49,3 +49,5 @@ console.log(true||true)
 // bitwise operators
 console.log(5 & 3);
 console.log(5 | 3);
+
+console.log((1)<18?" Less than 18":"18 or older");
